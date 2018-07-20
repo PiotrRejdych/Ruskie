@@ -6,7 +6,10 @@ export class PreloaderScene extends Scene {
 	}
 
 	preload() {
-		// Load game assets here
+		// Loading game assets happens here
+
+		// Images
+		this.load.spritesheet('buttonsheet', 'assets/spritesheets/buttonsheet.png', { frameWidth: 304, frameHeight: 49 });
 	}
 
 	create() {
