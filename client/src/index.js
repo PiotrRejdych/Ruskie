@@ -17,13 +17,7 @@ class MainScene extends Scene {
 const game = new Game({
   scene: [MainScene],
   type: AUTO,
-  width: window.innerWidth,
-  height: window.innerHeight,
+  width: 800,
+  height: 600,
   pixelArt: true,
 });
-
-const resizeGameToFullscreen = () => {
-  game.resize(window.innerWidth, window.innerHeight);
-};
-window.addEventListener("resize", resizeGameToFullscreen);
-window.addEventListener("load", resizeGameToFullscreen);
