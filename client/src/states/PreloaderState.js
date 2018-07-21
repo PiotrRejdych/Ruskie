@@ -1,5 +1,5 @@
-import fullStomach from '../../assets/spritesheets/fullStomach.png'
-import emptyStomach from '../../assets/spritesheets/emptyStomach.png'
+import fullStomach from '../../assets/textures/fullStomach.png'
+import emptyStomach from '../../assets/textures/emptyStomach.png'
 export class PreloaderState extends Phaser.State {
 	preload() {
 		// Images
