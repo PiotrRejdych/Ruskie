@@ -16,12 +16,12 @@ export class GameView extends Phaser.Group {
 
 		for (let i = 0; i < playersCount; i++) {
 			const playerZone = new PlayerZone(this.game, i);
-			playerZone.y = i * 220;
+			playerZone.y = i * 300;
             this.playerZones.add(playerZone);
         }
 
-		this.playerZones.x = 120;
-		this.playerZones.y = (this.game.height - this.playerZones.height) * 0.5;
+		this.playerZones.x = -50;
+		this.playerZones.y = (this.game.height - this.playerZones.height) * 0.5 + 20;
 
 		this.game.input.keyboard.onDownCallback = this._onKeyDown.bind(this);
 		this.game.input.keyboard.onUpCallback = this._onKeyUp.bind(this);
