@@ -3,32 +3,34 @@ import { Portrait } from "./Portrait";
 import { Stomach } from "./Stomach";
 
 export class PlayerZone extends Phaser.Group {
-	constructor(game, x, y) {
+	constructor(game) {
 		super(game);
 
-		this.x_coordinate = x;
-		this.y_coordinate = y;
-		this._conveyor = this._createConveyor(game, this.x_coordinate, this.y_coordinate);
-		this._portrait = this._createPortrait(game, this.x_coordinate, this.y_coordinate);
-		this._stomach = this._createStomach(game, this.x_coordinate, this.y_coordinate);
+		this.game = game;
+
+		this._conveyor = this._createConveyor();
+		this._portrait = this._createPortrait();
+		this._stomach = this._createStomach();
 	}
 
-	_createConveyor(game, x, y) {
-		const conveyor = new Conveyor(game, x, y);
+	spawnDish(dish) {
+		this._conveyor.spawnDish(dish);
+	}
+
+	_createConveyor() {
+		const conveyor = new Conveyor(this.game);
 		return this.add(conveyor);
 	}
 
-	_createPortrait(game, x, y) {
-		const portrait = new Portrait(game);
-		portrait.y = game.height - 260;
-		portrait.x = x;
+	_createPortrait() {
+		const portrait = new Portrait(this.game);
+		portrait.y = this.game.height - 260;
 		return this.add(portrait);
 	}
 
-	_createStomach(game, x, y) {
-		const stomach = new Stomach(game);
-		stomach.y = game.height - stomach.height / 2;
-		stomach.x = x;
+	_createStomach() {
+		const stomach = new Stomach(this.game);
+		stomach.y = this.game.height - stomach.height / 2;
 		return this.add(stomach);
 	}
 }

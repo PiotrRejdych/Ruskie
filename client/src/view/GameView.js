@@ -14,10 +14,17 @@ export class GameView extends Phaser.Group {
 		this.playerZones = this.game.add.group();
 
 		for (let i = 0; i < playersCount; i++) {
-            this.playerZones.add(new PlayerZone(this.game, 100 + i * 300, 0));
+			const playerZone = new PlayerZone(this.game);
+			playerZone.x = 100 + i * 300;
+            this.playerZones.add(playerZone);
         }
 
 		this.game.input.keyboard.onPressCallback = this._onKeyPressed.bind(this);
+	}
+
+	spawnDishForPlayer(playerIndex, dish) {
+		const playerZone = this.playerZones.children[playerIndex];
+		playerZone.spawnDish(dish);
 	}
 
 	_onKeyPressed(key) {

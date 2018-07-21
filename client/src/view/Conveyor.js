@@ -2,27 +2,48 @@ import {FoodItem} from "./FoodItem";
 import {DishManager} from "../controller/DishManager";
 
 export class Conveyor extends Phaser.Group {
-    constructor(game, x, y) {
+    constructor(game) {
         super(game);
 
-        this.x = x;
-        this.y = y;
+        this.game = game;
 
-        this.backgroundImage = this.game.add.sprite(this.x, this.y, 'conveyorBelt');
-        this.backgroundImage.scale.setTo(0.3, 0.3);
+        this._backgroundImage = this.game.add.sprite(0, 0, 'conveyorBelt');
+        this._backgroundImage.scale.setTo(0.3, 0.3);
 
-        this.conveyorWidth = this.backgroundImage.width;
-        this.conveyorHeight = this.backgroundImage.height;
+        this._food = this.game.add.group();
+	    this._food.x = 20;
 
-        this.food = this.game.add.group();
+        this.add(this._backgroundImage);
+	    this.add(this._food);
     }
 
-    spawnDumpling (dumplingType) {
-        this.food.add(this.game.world.add(new FoodItem(this.game, this.x + this.conveyorWidth * 0.6, this.y, this.conveyorHeight, dumplingType)));
+    spawnDish(dish) {
+    	const foodItem = new FoodItem(this.game, dish);
+	    foodItem.x = Math.floor(Math.random() * this.getWidth() * 0.8);
+        this._food.add(foodItem);
 	}
 
     update() {
+    	const garbage = [];
+		this._food.children.forEach((foodItem) => {
+			foodItem.y += 4;
 
+			if(foodItem.y > this.getHeight() - foodItem.height * 0.5) {
+				garbage.push(foodItem);
+			}
+		});
+
+	    garbage.forEach((foodItem) => {
+		    foodItem.destroy();
+	    });
     }
+
+    getWidth() {
+    	return this._backgroundImage.width;
+    }
+
+	getHeight() {
+		return this._backgroundImage.height;
+	}
 
 }
