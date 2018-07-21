@@ -6,13 +6,13 @@ export class MenuState extends Phaser.State {
 	}
 
 	_createPlayButton() {
-		const button = new Button(this.game, "Play", this._proceedToGameScene);
+		const button = new Button(this.game, "2 players", this._proceedToGameScene);
 		button.x = this.game.width * 0.5;
 		button.y = this.game.height * 0.5;
 		return button;
 	}
 
 	_proceedToGameScene() {
-		this.game.state.start('Game');
+		this.game.state.start('Game', true, false, 2);
 	}
 }
