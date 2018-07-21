@@ -1,5 +1,5 @@
 export class GameModel {
-	constructor(numberOfPlayers) {
-		this.numberOfPlayers = numberOfPlayers;
+	constructor(playersCount) {
+		this.playersCount = playersCount;
 	}
 }
