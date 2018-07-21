@@ -7,7 +7,6 @@ export class BootState extends Phaser.State {
 		this.game.scale.pageAlignHorizontally = true;
 
 		this.game.stage.disableVisibilityChange = true;
-        this.game.add.text(0, 0, "hack", {font:"1px Bulgaria_Moderna", fill:"#FFFFFF"});
 
 		this.game.state.start('Preloader');
 	}

@@ -8,7 +8,9 @@ import bohun from '../../assets/textures/completeBohun.png';
 export class PreloaderState extends Phaser.State {
 	preload() {
 		// Images
-		this.game.load.spritesheet('buttonsheet', 'assets/spritesheets/buttonsheet.png', 304, 49);
+		this.game.load.spritesheet('buttonsheet', 'assets/spritesheets/buttonsheet.png', 504, 100);
+        this.game.load.image('partTimeKamikaze', 'assets/textures/partTimeKamikaze.jpg');
+        this.game.load.image('background', 'assets/textures/background.png');
 		this.game.load.image('stomach_empty', emptyStomach);
 		this.game.load.image('stomach_full', fullStomach);
 		this.game.load.image('cottageCheese', 'assets/textures/cottageCheese.png');
@@ -38,6 +40,9 @@ export class PreloaderState extends Phaser.State {
 		// Data files
 		this.game.load.json('handlerkeys', 'data/handlerkeys.json');
 		this.game.load.json('food', 'data/food.json');
+
+		//font preload
+        this.game.add.text(0, 0, "hack", {font:"1px Bulgaria_Moderna", fill:"#FFFFFF"});
 
 		/*
     	// Images
