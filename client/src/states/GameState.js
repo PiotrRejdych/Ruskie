@@ -6,18 +6,17 @@ export class GameState extends Phaser.State {
 	init(numberOfPlayers) {
 		const model = new GameModel(numberOfPlayers);
 		const view = new GameView(this.game);
-		this.controller = new GameController(model, view);
+		this._controller = new GameController(model, view);
 	}
 
 	create() {
-		// initialize game components here
-		this.game.stage.backgroundColor = "#4488AA";
-
-		const text = this.game.add.text(this.game.world.centerX, this.game.world.centerY, "RUSKIE", { font: "65px Arial", fill: "#ff0044", align: "center" });
-		text.anchor.set(0.5);
+		this._lastFrameTime = this.game.time.now;
+		this._controller.init();
 	}
 
 	update() {
-		// game loop - implement game behaviour here
+		const deltaTime = this.game.time.now - this._lastFrameTime;
+		this._controller.update(deltaTime);
+		this._lastFrameTime = this.game.time.now;
 	}
 }
