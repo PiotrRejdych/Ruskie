@@ -5,7 +5,8 @@ export class GameView extends Phaser.Group {
 		super(game);
 		this.game = game;
 
-		this.onKeyPressed = null;
+		this.onKeyDown = null;
+		this.onKeyUp = null;
 	}
 
 	prepareScene(playersCount) {
@@ -19,7 +20,8 @@ export class GameView extends Phaser.Group {
             this.playerZones.add(playerZone);
         }
 
-		this.game.input.keyboard.onPressCallback = this._onKeyPressed.bind(this);
+		this.game.input.keyboard.onDownCallback = this._onKeyDown.bind(this);
+		this.game.input.keyboard.onUpCallback = this._onKeyUp.bind(this);
 	}
 
 	spawnDishForPlayer(playerIndex, dish) {
@@ -38,9 +40,15 @@ export class GameView extends Phaser.Group {
 		return this.playerZones.children[playerIndex];
 	}
 
-	_onKeyPressed(key) {
-		if (this.onKeyPressed) {
-			this.onKeyPressed(key);
+	_onKeyDown(event) {
+		if (this.onKeyDown) {
+			this.onKeyDown(event.key);
+		}
+	}
+
+	_onKeyUp(event) {
+		if (this.onKeyUp) {
+			this.onKeyUp(event.key);
 		}
 	}
 }

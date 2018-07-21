@@ -25,7 +25,8 @@ export class GameController {
 		}
 
 		this._view.prepareScene(this._model.playersCount);
-		this._view.onKeyPressed = this._onKeyPressed.bind(this);
+		this._view.onKeyDown = this._onKeyDown.bind(this);
+		this._view.onKeyUp = this._onKeyUp.bind(this);
 	}
 
 	update(deltaTime) {
@@ -53,9 +54,19 @@ export class GameController {
 		return this._model.BASE_SPAWN_TIME / this._spawnSpeed;
 	}
 
-	_onKeyPressed(key) {
+	_onKeyDown(key) {
 		if (this._model.isKeyHandled(key)) {
-			this._view.openPlayerMouth(this._model.getPlayerPressingKey(key));
+			const playerIndex = this._model.getPlayerPressingKey(key);
+			this._model.setPlayerEating(playerIndex);
+			this._view.openPlayerMouth(playerIndex);
+		}
+	}
+
+	_onKeyUp(key) {
+		if (this._model.isKeyHandled(key)) {
+			const playerIndex = this._model.getPlayerPressingKey(key);
+			this._model.setPlayerStarving(playerIndex);
+			this._view.closePlayerMouth(playerIndex);
 		}
 	}
 }
