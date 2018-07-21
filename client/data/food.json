@@ -1,17 +1,5 @@
 [
   {
-    "name": "strawberry",
-    "sating": 1
-  },
-  {
-    "name": "spinach",
-    "sating": 1
-  },
-  {
-    "name": "cottageCheese",
-    "sating": 1
-  },
-  {
     "name": "dumpling1",
     "sating": 1
   },
@@ -21,18 +9,6 @@
   },
   {
     "name": "dumpling3",
-    "sating": 1
-  },
-  {
-    "name": "potato1",
-    "sating": 1
-  },
-  {
-    "name": "potato2",
-    "sating": 1
-  },
-  {
-    "name": "potato3",
     "sating": 1
   },
   {
@@ -61,14 +37,14 @@
   },
   {
     "name": "rottenDumpling1",
-    "sating": -1
+    "sating": -3
   },
   {
     "name": "rottenDumpling2",
-    "sating": -1
+    "sating": -3
   },
   {
     "name": "rottenDumpling3",
-    "sating": -1
+    "sating": -3
   }
 ]

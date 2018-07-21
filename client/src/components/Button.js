@@ -24,6 +24,6 @@ export class Button extends Phaser.Group {
 	}
 
 	_getLabelStyle() {
-		return {font: "20px endorregular", fill: "#86322e", boundsAlignV: "middle", align: "center"};
+		return {font: "50px Bulgaria_Moderna", fill: "#86322e", boundsAlignV: "middle", align: "center"};
 	}
 }
