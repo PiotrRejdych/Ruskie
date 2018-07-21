@@ -46,6 +46,7 @@ export class GameController {
 
 	_spawnDish(playerIndex) {
 		const dish = this._dishManager.determineDish(this._globalElapsedTime, playerIndex);
+		this._view.playerZones.getChildAt(playerIndex)._conveyor.spawnDumpling(dish.key);
 		console.log("Player " + playerIndex + " got " + dish.key);
 	}
 

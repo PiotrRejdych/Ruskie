@@ -23,7 +23,7 @@ export class Stomach extends Phaser.Group {
 		this.maskGraphic = this.createMask(game, this.getFillStomachHeight());
 		this.fullStomach.mask = this.maskGraphic;
 
-		this.scale.set(0.5);
+		this.scale.set(0.3);
 	}
 
 	createEmptyStomach(game) {
