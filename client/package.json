@@ -1,18 +1,25 @@
 {
-  "name": "io-client",
+  "name": "ruskie",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic client for Ruskie game",
+  "engines": {
+    "node": "10.7.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnipromv/daemonis.git"
+  },
+  "author": "Mykyta Dniprovskyi",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/dnipromv/daemonis/wiki",
   "dependencies": {
-    "colyseus.js": "^0.9.11",
-    "phaser": "^3.11.0"
+    "phaser": "2.6.2"
   },
   "devDependencies": {
     "file-loader": "^1.1.11",

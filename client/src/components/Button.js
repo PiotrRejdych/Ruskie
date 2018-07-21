@@ -1,32 +1,29 @@
-import { GameObjects } from "phaser";
+export class Button extends Phaser.Group {
+	constructor(game, labelText, onClick) {
+		super(game);
 
-export class Button extends GameObjects.Group {
-	constructor(scene, labelText, onClick) {
-		super(scene);
+		const background = this._createBackground(game, onClick);
+		const label = this._createLabel(game, labelText);
 
-		const background = this._createBackground(scene, onClick);
-		const label = this._createLabel(scene, labelText);
+		label.x = background.width * 0.5;
+		label.y = background.height * 0.5;
+
+		this.pivot.x = background.width * 0.5;
+		this.pivot.y = background.height * 0.5;
 	}
 
-	_createBackground(scene, onClick) {
-		const background = scene.add.sprite(0, 0, "buttonsheet", 0).setInteractive();
-
-		background.on('pointerover', function (event) { background.frame = background.texture.frames[1]; });
-		background.on('pointerout', function (event) { background.frame = background.texture.frames[0]; });
-		background.on('pointerup', function (event) {background.frame = background.texture.frames[1];});
-		background.on('pointerdown', function (event) {
-			background.frame = background.texture.frames[2];
-			if (onClick) { onClick(); }
-		});
-
-		return this.add(background);
+	_createBackground(game, onClick) {
+		const button = game.add.button(0, 0, "buttonsheet", onClick, null, 1, 0);
+		return this.add(button);
 	}
 
-	_createLabel(scene, text) {
-		const label = scene.add.text(0, 0, text);
-		label.setFontFamily('Arial');
-		label.setFontSize(64);
-		label.setColor('#ffff00');
+	_createLabel(game, labelText) {
+		const label = game.add.text(0, 0, labelText, this._getLabelStyle());
+		label.anchor.set(0.5);
 		return this.add(label);
+	}
+
+	_getLabelStyle() {
+		return {font: "20px endorregular", fill: "#86322e", boundsAlignV: "middle", align: "center"};
 	}
 }
