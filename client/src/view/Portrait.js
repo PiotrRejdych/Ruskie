@@ -26,7 +26,7 @@ export class Portrait extends Phaser.Group {
 		this.pivot.x = this.portrait.width / 2;
 		this.pivot.y = this.portrait.height / 2;
 
-		this.scale.set(0.5);
+		this.scale.set(0.3);
 
 		this.setNotEating();
 	}
