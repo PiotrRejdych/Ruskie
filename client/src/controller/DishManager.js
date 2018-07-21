@@ -25,7 +25,7 @@ export class DishManager {
 			const previousTimeStep = currentTimeStep - 1;
 			const previousRottenDishesLimit = this._calculateRottenDishesLimitInTimeStep(previousTimeStep);
 
-			if (this._rottenDishesCount[playerIndex][previousTimeStep] < previousRottenDishesLimit) {
+			if (this._rottenDishesCount[playerIndex][previousTimeStep] < previousRottenDishesLimit - 1) {
 				this._rottenDishesCount[playerIndex][previousTimeStep] += 1;
 				return this._getRandomBadDish();
 			}
@@ -36,7 +36,7 @@ export class DishManager {
 	}
 
 	_getRandomDish(playerIndex, currentTimeStep, currentRottenDishesLimit) {
-		if (this._rottenDishesCount[playerIndex][currentTimeStep] < currentRottenDishesLimit && this._shouldSpawnRottenDish()) {
+		if (this._rottenDishesCount[playerIndex][currentTimeStep] < currentRottenDishesLimit - 1 && this._shouldSpawnRottenDish()) {
 			this._rottenDishesCount[playerIndex][currentTimeStep] += 1;
 			return this._getRandomBadDish();
 		}
@@ -58,7 +58,7 @@ export class DishManager {
 	}
 
 	_calculateRottenDishesLimitInTimeStep(timeStep) {
-		return this.ROTTEN_DISH_PER_TIMESTEP + Math.floor(timeStep * 0.3);
+		return this.ROTTEN_DISH_PER_TIMESTEP + Math.floor(timeStep * 0.1);
 	}
 
 	_shouldSpawnRottenDish() {
