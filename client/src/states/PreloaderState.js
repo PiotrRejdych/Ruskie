@@ -1,7 +1,11 @@
+import fullStomach from '../../assets/textures/fullStomach.png'
+import emptyStomach from '../../assets/textures/emptyStomach.png'
 export class PreloaderState extends Phaser.State {
 	preload() {
 		// Images
 		this.game.load.spritesheet('buttonsheet', 'assets/spritesheets/buttonsheet.png', 304, 49);
+		this.game.load.image('stomach_empty', emptyStomach);
+		this.game.load.image('stomach_full', fullStomach);
 		this.game.load.image('cottageCheese', 'assets/textures/cottageCheese.png');
 		this.game.load.image('dumpling1', 'assets/textures/dumpling1.png');
 		this.game.load.image('dumpling2', 'assets/textures/dumpling2.png');

@@ -14,8 +14,8 @@ export class GameView extends Phaser.Group {
 		this.playerZones = this.game.add.group();
 
 		for (let i = 0; i < playersCount; i++) {
-			this.playerZones[i] = new PlayerZone(this.game);
-		}
+            this.playerZones.add(new PlayerZone(this.game));
+        }
 
 		this.game.input.keyboard.onPressCallback = this._onKeyPressed.bind(this);
 	}
