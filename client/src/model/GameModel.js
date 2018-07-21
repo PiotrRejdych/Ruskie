@@ -32,7 +32,8 @@ export class GameModel {
 	}
 
 	isKeyHandled(key) {
-		return this.getPlayerPressingKey(key) >= 0;
+		const playerIndex = this.getPlayerPressingKey(key);
+		return playerIndex >= 0 && playerIndex < this.playersCount;
 	}
 
 	getPlayerPressingKey(key) {
