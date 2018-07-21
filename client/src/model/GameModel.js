@@ -2,6 +2,9 @@ export class GameModel {
 	constructor(gameCache, playersCount) {
 		this.playersCount = playersCount;
 
+		this.BASE_SPAWN_TIME = 200; // in milliseconds
+		this.BASE_SPAWN_SPEED = 1.0;
+
 		this._handlerKeys = gameCache.getJSON("handlerkeys").map(this._parsePlayerHandlerKeys);
 		this._assortment = gameCache.getJSON("food").map(this._parseDish);
 	}
@@ -29,6 +32,3 @@ export class GameModel {
 		};
 	}
 }
-
-GameModel.SPAWN_SPEED_START = 1.0;
-GameModel.SPAWN_TIME = 1000;
