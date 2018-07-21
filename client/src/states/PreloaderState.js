@@ -3,6 +3,9 @@ export class PreloaderState extends Phaser.State {
 		// Images
 		this.game.load.spritesheet('buttonsheet', 'assets/spritesheets/buttonsheet.png', 304, 49);
 
+		// Data files
+		this.game.load.json('handlerkeys', 'data/handlerkeys.json');
+
 		/*
     	// Images
     	this.game.load.atlasJSONArray('basesheet', 'assets/spritesheets/basesheet.png',
