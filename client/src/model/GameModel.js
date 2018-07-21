@@ -1,9 +1,9 @@
-
 export class GameModel {
 	constructor(gameCache, playersCount) {
 		this.playersCount = playersCount;
 
 		this._handlerKeys = gameCache.getJSON("handlerkeys").map(this._parsePlayerHandlerKeys);
+		this._assortment = gameCache.getJSON("food").map(this._parseDish);
 	}
 
 	isKeyHandled(key) {
@@ -21,4 +21,14 @@ export class GameModel {
 			primaryActionKey: playerHandlerKeys.primaryAction
 		};
 	}
+
+	_parseDish(dish) {
+		return {
+			key: dish.name,
+			sating: dish.sating
+		};
+	}
 }
+
+GameModel.SPAWN_SPEED_START = 1.0;
+GameModel.SPAWN_TIME = 1000;
