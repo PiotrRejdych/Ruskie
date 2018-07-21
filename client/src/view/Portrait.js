@@ -5,17 +5,11 @@ export const NAME = {
 	BOHUN: 2,
 }
 
-const EATING_ASSETS = {
+const ASSETS = {
 	[NAME.JANUSZ]: 'janusz',
 	[NAME.BOHUN]: 'bohun',
 	[NAME.IZABELA]: 'izabela'
 };
-
-const ASSETS = {
-	[NAME.JANUSZ]: 'eatingJanusz',
-	[NAME.BOHUN]: 'eatingBohun',
-	[NAME.IZABELA]: 'eatingIzabela'
-}
 
 export class Portrait extends Phaser.Group {
 	constructor(game, name = NAME.JANUSZ) {
@@ -28,7 +22,6 @@ export class Portrait extends Phaser.Group {
 		this._fullness = 0;
 
 		this.portrait = this.createPortrait(game);
-		this.eatingPortrait = this.createEatingPortrait(game);
 
 		this.pivot.x = this.portrait.width / 2;
 		this.pivot.y = this.portrait.height / 2;
@@ -39,20 +32,14 @@ export class Portrait extends Phaser.Group {
 	}
 
 	setEating() {
-		this.portrait.visible = true;
-		this.eatingPortrait.visible = false;
+		this.portrait.frame = 1;
 	}
 
 	setNotEating() {
-		this.portrait.visible = false;
-		this.eatingPortrait.visible = true;
+		this.portrait.frame = 0;
 	}
 
 	createPortrait() {
-		return this.add(this.game.add.image(0, 0, ASSETS[this.name]));
-	}
-
-	createEatingPortrait() {
-		return this.add(this.game.add.image(0, 0, EATING_ASSETS[this.name]));
+		return this.add(this.game.add.sprite(0, 0, ASSETS[this.name]));
 	}
 }
