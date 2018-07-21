@@ -40,6 +40,7 @@ export class PreloaderState extends Phaser.State {
 		// Data files
 		this.game.load.json('handlerkeys', 'data/handlerkeys.json');
 		this.game.load.json('food', 'data/food.json');
+		this.game.load.json('characters', 'data/characters.json');
 
 		//font preload
         this.game.add.text(0, 0, "hack", {font:"1px Bulgaria_Moderna", fill:"#FFFFFF"});

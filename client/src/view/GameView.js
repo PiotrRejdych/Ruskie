@@ -14,7 +14,7 @@ export class GameView extends Phaser.Group {
 		this.playerZones = this.game.add.group();
 
 		for (let i = 0; i < playersCount; i++) {
-			const playerZone = new PlayerZone(this.game);
+			const playerZone = new PlayerZone(this.game, i);
 			playerZone.x = 100 + i * 300;
             this.playerZones.add(playerZone);
         }

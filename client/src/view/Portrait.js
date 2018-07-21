@@ -1,45 +1,31 @@
 
-export const NAME = {
+export const SKIN = {
 	JANUSZ: 0,
 	IZABELA: 1,
 	BOHUN: 2,
-}
-
-const ASSETS = {
-	[NAME.JANUSZ]: 'janusz',
-	[NAME.BOHUN]: 'bohun',
-	[NAME.IZABELA]: 'izabela'
 };
 
-export class Portrait extends Phaser.Group {
-	constructor(game, name = NAME.JANUSZ) {
-		super(game);
-		this.game = game;
-		this.name = name;
+const ASSETS = {
+	[SKIN.JANUSZ]: 'janusz',
+	[SKIN.BOHUN]: 'bohun',
+	[SKIN.IZABELA]: 'izabela'
+};
 
-		window.portrait = this;
+export class Portrait extends Phaser.Sprite {
+	constructor(game, skin = SKIN.JANUSZ) {
+		super(game, 0, 0, ASSETS[skin]);
 
-		this._fullness = 0;
-
-		this.portrait = this.createPortrait(game);
-
-		this.pivot.x = this.portrait.width / 2;
-		this.pivot.y = this.portrait.height / 2;
-
+		this.anchor.set(0.5);
 		this.scale.set(0.3);
 
 		this.setNotEating();
 	}
 
 	setEating() {
-		this.portrait.frame = 1;
+		this.frame = 1;
 	}
 
 	setNotEating() {
-		this.portrait.frame = 0;
-	}
-
-	createPortrait() {
-		return this.add(this.game.add.sprite(0, 0, ASSETS[this.name]));
+		this.frame = 0;
 	}
 }
