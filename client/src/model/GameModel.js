@@ -9,6 +9,10 @@ export class GameModel {
 		this._assortment = gameCache.getJSON("food").map(this._parseDish);
 	}
 
+	getDishAssortment() {
+		return this._assortment;
+	}
+
 	isKeyHandled(key) {
 		return this.getPlayerPressingKey(key) >= 0;
 	}
