@@ -1,3 +1,5 @@
+import { PlayerZone } from "./PlayerZone";
+
 export class GameView extends Phaser.Group {
 	constructor(game) {
 		super(game);
@@ -9,8 +11,11 @@ export class GameView extends Phaser.Group {
 	prepareScene(playersCount) {
 		this.game.stage.backgroundColor = "#4488AA";
 
-		const text = this.game.add.text(this.game.world.centerX, this.game.world.centerY, "RUSKIE", { font: "65px Arial", fill: "#ff0044", align: "center" });
-		text.anchor.set(0.5);
+		this.playerZones = this.game.add.group();
+
+		for (let i = 0; i < playersCount; i++) {
+			this.playerZones[i] = new PlayerZone(this.game);
+		}
 
 		this.game.input.keyboard.onPressCallback = this._onKeyPressed.bind(this);
 	}
