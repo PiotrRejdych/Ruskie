@@ -15,7 +15,7 @@ export class GameController {
 	}
 
 	init() {
-		this._dishManager = new DishManager(this._model.getDishAssortment());
+		this._dishManager = new DishManager(this._model.getDishAssortment(), this._model.playersCount);
 		this._globalElapsedTime = 0;
 		this._spawnSpeed = this._model.BASE_SPAWN_SPEED;
 
@@ -41,17 +41,16 @@ export class GameController {
 			}
 		}
 
-		this._spawnSpeed = this._model.BASE_SPAWN_SPEED + this._globalElapsedTime / 30000;
+		this._spawnSpeed = this._model.BASE_SPAWN_SPEED + this._globalElapsedTime / 40000;
 	}
 
 	_spawnDish(playerIndex) {
 		const dish = this._dishManager.determineDish(this._globalElapsedTime, playerIndex);
 		this._view.playerZones.getChildAt(playerIndex)._conveyor.spawnDumpling(dish.key);
-		console.log("Player " + playerIndex + " got " + dish.key);
 	}
 
 	_calculateNextSpawnTime() {
-		return this._model.BASE_SPAWN_TIME * this._spawnSpeed;
+		return this._model.BASE_SPAWN_TIME / this._spawnSpeed;
 	}
 
 	_onKeyPressed(key) {
