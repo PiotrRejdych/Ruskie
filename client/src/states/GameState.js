@@ -7,7 +7,7 @@ export class GameState extends Phaser.State {
 		const gameModel = new GameModel(this.game.cache, numberOfPlayers);
 		const gameView = new GameView(this.game);
 
-		this._controller = new GameController(gameModel, gameView);
+		this._controller = new GameController(gameModel, gameView, this.game);
 	}
 
 	create() {

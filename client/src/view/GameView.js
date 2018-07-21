@@ -25,18 +25,18 @@ export class GameView extends Phaser.Group {
 	}
 
 	spawnDishForPlayer(playerIndex, dish) {
-		this._getPlayerZone(playerIndex).spawnDish(dish);
+		this.getPlayerZone(playerIndex).spawnDish(dish);
 	}
 
 	openPlayerMouth(playerIndex) {
-		this._getPlayerZone(playerIndex).openMouth();
+		this.getPlayerZone(playerIndex).openMouth();
 	}
 
 	closePlayerMouth(playerIndex) {
-		this._getPlayerZone(playerIndex).closeMouth();
+		this.getPlayerZone(playerIndex).closeMouth();
 	}
 
-	_getPlayerZone(playerIndex) {
+	getPlayerZone(playerIndex) {
 		return this.playerZones.children[playerIndex];
 	}
 

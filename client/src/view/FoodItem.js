@@ -1,6 +1,7 @@
 export class FoodItem extends Phaser.Sprite {
     constructor(game, dish) {
         super(game, 0, 0, dish.key);
+        this.dish = dish;
 
         this.scale.set(0.2);
 

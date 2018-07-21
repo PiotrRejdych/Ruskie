@@ -1,9 +1,10 @@
 import { DishManager } from "./DishManager";
 
 export class GameController {
-	constructor(model, view) {
+	constructor(model, view, game) {
 		this._model = model;
 		this._view = view;
+        this._game = game;
 
 		this._dishManager = null;
 		this._globalElapsedTime = 0;
@@ -27,6 +28,9 @@ export class GameController {
 		this._view.prepareScene(this._model.playersCount);
 		this._view.onKeyDown = this._onKeyDown.bind(this);
 		this._view.onKeyUp = this._onKeyUp.bind(this);
+
+		this._game.eatingSignal = new Phaser.Signal();
+        this._game.eatingSignal.add(this._toEatOrNotToEat, this);
 	}
 
 	update(deltaTime) {
@@ -68,5 +72,11 @@ export class GameController {
 			this._model.setPlayerStarving(playerIndex);
 			this._view.closePlayerMouth(playerIndex);
 		}
+	}
+
+    _toEatOrNotToEat(playerIndex, sating) {
+		if(this._model.isPlayerEating(playerIndex)) {
+            this._view.getPlayerZone(playerIndex)._stomach.setFullness(sating);
+        }
 	}
 }
