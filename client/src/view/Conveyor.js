@@ -19,16 +19,16 @@ export class Conveyor extends Phaser.Group {
 
     spawnDish(dish) {
     	const foodItem = new FoodItem(this.game, dish);
-	    foodItem.x = Math.floor(Math.random() * this.getWidth() * 0.8);
+	    foodItem.y = Math.floor(Math.random() * this.getHeight() * 0.6);
         this._food.add(foodItem);
 	}
 
     update() {
     	const garbage = [];
 		this._food.children.forEach((foodItem) => {
-			foodItem.y += 4;
+			foodItem.x += 4;
 
-			if(foodItem.y > this.getHeight() - foodItem.height * 0.5) {
+			if(foodItem.x > this.getWidth() - foodItem.width * 0.5) {
 				garbage.push(foodItem);
 			}
 		});

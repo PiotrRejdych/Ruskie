@@ -24,7 +24,7 @@ export class GameModel {
 	}
 
 	isPlayerEating(playerIndex) {
-		return this._playersEating.indexOf(playerIndex) >= 0;
+		return this._playersEating.indexOf(playerIndex) ;
 	}
 
 	getDishAssortment() {
