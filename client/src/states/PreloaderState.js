@@ -2,9 +2,28 @@ export class PreloaderState extends Phaser.State {
 	preload() {
 		// Images
 		this.game.load.spritesheet('buttonsheet', 'assets/spritesheets/buttonsheet.png', 304, 49);
+		this.game.load.image('cottageCheese', 'assets/textures/cottageCheese.png');
+		this.game.load.image('dumpling1', 'assets/textures/dumpling1.png');
+		this.game.load.image('dumpling2', 'assets/textures/dumpling2.png');
+		this.game.load.image('dumpling3', 'assets/textures/dumpling3.png');
+		this.game.load.image('potato1', 'assets/textures/potato1.png');
+		this.game.load.image('potato2', 'assets/textures/potato2.png');
+		this.game.load.image('potato3', 'assets/textures/potato3.png');
+		this.game.load.image('rottenDumpling1', 'assets/textures/rottenDumpling1.png');
+		this.game.load.image('rottenDumpling2', 'assets/textures/rottenDumpling2.png');
+		this.game.load.image('rottenDumpling3', 'assets/textures/rottenDumpling3.png');
+		this.game.load.image('spinach', 'assets/textures/spinach.png');
+		this.game.load.image('spinachDumpling1', 'assets/textures/spinachDumpling1.png');
+		this.game.load.image('spinachDumpling2', 'assets/textures/spinachDumpling2.png');
+		this.game.load.image('spinachDumpling3', 'assets/textures/spinachDumpling3.png');
+		this.game.load.image('strawberry', 'assets/textures/strawberry.png');
+		this.game.load.image('strawberryDumpling1', 'assets/textures/strawberryDumpling1.png');
+		this.game.load.image('strawberryDumpling2', 'assets/textures/strawberryDumpling2.png');
+		this.game.load.image('strawberryDumpling3', 'assets/textures/strawberryDumpling3.png');
 
 		// Data files
 		this.game.load.json('handlerkeys', 'data/handlerkeys.json');
+		this.game.load.json('food', 'data/food.json');
 
 		/*
     	// Images

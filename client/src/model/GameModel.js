@@ -4,6 +4,7 @@ export class GameModel {
 		this.playersCount = playersCount;
 
 		this._handlerKeys = gameCache.getJSON("handlerkeys").map(this._parsePlayerHandlerKeys);
+		this._assortment = gameCache.getJSON("food").map(this._parseDish);
 	}
 
 	isKeyHandled(key) {
@@ -19,6 +20,13 @@ export class GameModel {
 	_parsePlayerHandlerKeys(playerHandlerKeys) {
 		return {
 			primaryActionKey: playerHandlerKeys.primaryAction
+		};
+	}
+
+	_parseDish(dish) {
+		return {
+			key: dish.name,
+			sating: dish.sating
 		};
 	}
 }
