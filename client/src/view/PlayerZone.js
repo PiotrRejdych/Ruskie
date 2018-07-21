@@ -17,6 +17,14 @@ export class PlayerZone extends Phaser.Group {
 		this._conveyor.spawnDish(dish);
 	}
 
+	openMouth() {
+		this._portrait.setEating();
+	}
+
+	closeMouth() {
+		this._portrait.setNotEating();
+	}
+
 	_createConveyor() {
 		const conveyor = new Conveyor(this.game);
 		return this.add(conveyor);

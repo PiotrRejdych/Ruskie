@@ -47,7 +47,6 @@ export class GameController {
 	_spawnDish(playerIndex) {
 		const dish = this._dishManager.determineDish(this._globalElapsedTime, playerIndex);
 		this._view.spawnDishForPlayer(playerIndex, dish);
-		//this._view.playerZones.getChildAt(playerIndex)._conveyor.spawnDumpling(dish.key);
 	}
 
 	_calculateNextSpawnTime() {
@@ -56,7 +55,7 @@ export class GameController {
 
 	_onKeyPressed(key) {
 		if (this._model.isKeyHandled(key)) {
-			console.log("Player " + this._model.getPlayerPressingKey(key) + " toggle state");
+			this._view.openPlayerMouth(this._model.getPlayerPressingKey(key));
 		}
 	}
 }
