@@ -18,7 +18,7 @@ export class Conveyor extends Phaser.Group {
     }
 
     spawnDumpling (dumplingType) {
-        this.food.add(this.game.world.add(new FoodItem(this.game, this.x + this.conveyorWidth / 2, this.y, this.conveyorHeight, dumplingType)));
+        this.food.add(this.game.world.add(new FoodItem(this.game, this.x + this.conveyorWidth * 0.6, this.y, this.conveyorHeight, dumplingType)));
 	}
 
     update() {
