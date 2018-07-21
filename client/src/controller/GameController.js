@@ -15,7 +15,7 @@ export class GameController {
 	}
 
 	init() {
-		this._dishManager = new DishManager(this._model.getDishAssortment());
+		this._dishManager = new DishManager(this._model.getDishAssortment(), this._model.playersCount);
 		this._globalElapsedTime = 0;
 		this._spawnSpeed = this._model.BASE_SPAWN_SPEED;
 
