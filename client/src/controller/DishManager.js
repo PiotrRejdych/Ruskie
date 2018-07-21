@@ -23,7 +23,7 @@ export class DishManager {
 		}
 		else {
 			const previousTimeStep = currentTimeStep - 1;
-			const previousRottenDishesLimit = this._calculateRottenDishesLimitInTimeStep(previousTimeStep);
+			const previousRottenDishesLimit = this._calculateRottenDishesLimitInPreviousTimeStep(previousTimeStep);
 
 			if (this._rottenDishesCount[playerIndex][previousTimeStep] < previousRottenDishesLimit - 1) {
 				this._rottenDishesCount[playerIndex][previousTimeStep] += 1;
@@ -59,6 +59,14 @@ export class DishManager {
 
 	_calculateRottenDishesLimitInTimeStep(timeStep) {
 		return this.ROTTEN_DISH_PER_TIMESTEP + Math.floor(timeStep * 0.1);
+	}
+
+	_calculateRottenDishesLimitInPreviousTimeStep(timeStep) {
+		let limit = 0;
+		this._rottenDishesCount.forEach((playerRottenDishesCount) => {
+			limit = Math.max(playerRottenDishesCount[timeStep], limit);
+		});
+		return limit;
 	}
 
 	_shouldSpawnRottenDish() {
