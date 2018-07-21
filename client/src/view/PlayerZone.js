@@ -23,6 +23,7 @@ export class PlayerZone extends Phaser.Group {
 
 	_createStomach(game) {
 		const stomach = new Stomach(game);
+		stomach.y = game.height - stomach.height / 2;
 		return this.add(stomach);
 	}
 }
