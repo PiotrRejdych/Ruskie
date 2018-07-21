@@ -24,6 +24,7 @@ export class PreloaderState extends Phaser.State {
 		this.game.load.image('strawberryDumpling1', 'assets/textures/strawberryDumpling1.png');
 		this.game.load.image('strawberryDumpling2', 'assets/textures/strawberryDumpling2.png');
 		this.game.load.image('strawberryDumpling3', 'assets/textures/strawberryDumpling3.png');
+		this.game.load.image('conveyorBelt','assets/textures/conveyorBelt.png');
 
 		// Data files
 		this.game.load.json('handlerkeys', 'data/handlerkeys.json');

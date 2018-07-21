@@ -12,7 +12,7 @@ export class PlayerZone extends Phaser.Group {
 	}
 
 	_createConveyor(game) {
-		const conveyor = new Conveyor(game);
+		const conveyor = new Conveyor(game, 100, 100);
 		return this.add(conveyor);
 	}
 
