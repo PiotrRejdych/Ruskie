@@ -1,5 +1,10 @@
 import fullStomach from '../../assets/textures/fullStomach.png'
 import emptyStomach from '../../assets/textures/emptyStomach.png'
+
+import izabela from '../../assets/textures/completeIzabela.png';
+import janusz from '../../assets/textures/completeJanusz.png';
+import bohun from '../../assets/textures/completeBohun.png';
+
 export class PreloaderState extends Phaser.State {
 	preload() {
 		// Images
@@ -24,6 +29,11 @@ export class PreloaderState extends Phaser.State {
 		this.game.load.image('strawberryDumpling1', 'assets/textures/strawberryDumpling1.png');
 		this.game.load.image('strawberryDumpling2', 'assets/textures/strawberryDumpling2.png');
 		this.game.load.image('strawberryDumpling3', 'assets/textures/strawberryDumpling3.png');
+		this.game.load.image('conveyorBelt','assets/textures/conveyorBelt.png');
+
+		this.game.load.spritesheet('izabela', izabela, 600, 600);
+		this.game.load.spritesheet('janusz', janusz, 600, 600);
+		this.game.load.spritesheet('bohun', bohun, 600, 600);
 
 		// Data files
 		this.game.load.json('handlerkeys', 'data/handlerkeys.json');

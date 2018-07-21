@@ -4,9 +4,10 @@ import { GameController } from "../controller/GameController";
 
 export class GameState extends Phaser.State {
 	init(numberOfPlayers) {
-		const model = new GameModel(this.game.cache, numberOfPlayers);
-		const view = new GameView(this.game);
-		this._controller = new GameController(model, view);
+		const gameModel = new GameModel(this.game.cache, numberOfPlayers);
+		const gameView = new GameView(this.game);
+
+		this._controller = new GameController(gameModel, gameView);
 	}
 
 	create() {

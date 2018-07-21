@@ -2,8 +2,8 @@
 
 export class Stomach extends Phaser.Group {
 
-	set fillness (value) {
-		this._fillness = value;
+	set fullness (value) {
+		this._fullness = value;
 		this.updateMask();
 	}
 
@@ -12,7 +12,7 @@ export class Stomach extends Phaser.Group {
 
 		window.stomach = this;
 
-		this._fillness = 0;
+		this._fullness = 0;
 
 		this.emptyStomach = this.createEmptyStomach(game);
 		this.fullStomach = this.createFullStomach(game);
@@ -41,8 +41,8 @@ export class Stomach extends Phaser.Group {
 		return this.add(mask);
 	}
 
-	setFillness(fillness) {
-		this.game.add.tween(this).to({ fillness }, 500, Phaser.Easing.Elastic.Out, true);
+	setFullness(fullness) {
+		this.game.add.tween(this).to({ fullness }, 500, Phaser.Easing.Elastic.Out, true);
 	}
 
 	updateMask() {
@@ -52,6 +52,6 @@ export class Stomach extends Phaser.Group {
 	}
 
 	getFillStomachHeight() {
-		return this._fillness * this.fullStomach.height;
+		return this._fullness * this.fullStomach.height;
 	}
 }
