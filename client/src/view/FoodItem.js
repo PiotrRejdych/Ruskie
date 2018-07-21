@@ -3,8 +3,11 @@ export class FoodItem extends Phaser.Sprite {
         super(game, x, y, image);
 
         this.scale.set(0.2);
-        this.x = x - this.width/2;
-        this.y = y - this.height;
+
+        this.pivot.x = image.width / 2;
+        this.pivot.y = image.height / 2;
+
+        this.angle = Math.random() * 100;
         this.conveyorHeight = height;
     }
 
