@@ -1,5 +1,3 @@
-import { InputHandler } from "../components/InputHandler";
-
 export class GameController {
 	constructor(model, view) {
 		this._model = model;
