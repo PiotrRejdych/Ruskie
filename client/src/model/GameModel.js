@@ -1,4 +1,3 @@
-
 export class GameModel {
 	constructor(gameCache, playersCount) {
 		this.playersCount = playersCount;
@@ -30,3 +29,6 @@ export class GameModel {
 		};
 	}
 }
+
+GameModel.SPAWN_SPEED_START = 1.0;
+GameModel.SPAWN_TIME = 1000;
