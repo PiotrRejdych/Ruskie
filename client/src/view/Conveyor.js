@@ -24,7 +24,7 @@ export class Conveyor extends Phaser.Group {
             this.food.add(this.game.world.add(new FoodItem(this.game, this.x + this.conveyorWidth/2, this.y, this.conveyorHeight, 'dumpling1')));
             this.spawnReady = false;
             let timer = this.game.time.create(this.game, true);
-            timer.add(1000,this.setSpawnReadyTrue, this);
+            timer.add(400,this.setSpawnReadyTrue, this);
             timer.start();
 		}
 	}

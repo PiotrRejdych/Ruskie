@@ -4,11 +4,12 @@ export class FoodItem extends Phaser.Sprite {
 
         this.scale.set(0.2);
         this.x = x - this.width/2;
+        this.y = y - this.height;
         this.conveyorHeight = height;
     }
 
     update(){
-        this.y++;
-        if(this.y > this.conveyorHeight) this.destroy();
+        this.y += 4;
+        if(this.y > this.conveyorHeight - this.height/2) this.destroy();
     }
 }
