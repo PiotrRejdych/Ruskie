@@ -1,7 +1,6 @@
 import { GameModel } from "../model/GameModel";
 import { GameView } from "../view/GameView";
 import { GameController } from "../controller/GameController";
-import PlayerController from '../controller/PlayerController';
 
 export class GameState extends Phaser.State {
 	init(numberOfPlayers) {

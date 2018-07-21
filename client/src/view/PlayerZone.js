@@ -20,6 +20,7 @@ export class PlayerZone extends Phaser.Group {
 
 	_createPortrait(game) {
 		const portrait = new Portrait(game);
+		portrait.y = game.height - 500;
 		return this.add(portrait);
 	}
 

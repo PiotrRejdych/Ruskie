@@ -13,6 +13,6 @@ export class MenuState extends Phaser.State {
 	}
 
 	_proceedToGameScene() {
-		this.game.state.start('Game', true, false, 2);
+		this.game.state.start('Game', true, false, 3);
 	}
 }
