@@ -13,6 +13,14 @@ export class GameState extends Phaser.State {
 	create() {
 		this._lastFrameTime = this.game.time.now;
 		this._controller.init();
+
+		const game = this.game;
+        // Create a label to use as a button
+        window.onkeydown = function() {
+            if (game.input.keyboard.event.keyCode === Phaser.Keyboard.ESC) {
+                game.paused = !game.paused;
+            }
+        };
 	}
 
 	update() {
