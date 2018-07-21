@@ -33,7 +33,7 @@ export class PlayerZone extends Phaser.Group {
 	_createPortrait(playerIndex) {
 		const portrait = new Portrait(this.game, playerIndex);
 		portrait.y = this._conveyor.getHeight() * 0.5 - 10;
-		portrait.x = this._conveyor.getWidth() + 80;
+		portrait.x = this._conveyor.getWidth();
 		return this.add(portrait);
 	}
 

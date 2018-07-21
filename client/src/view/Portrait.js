@@ -16,7 +16,7 @@ export class Portrait extends Phaser.Sprite {
 		super(game, 0, 0, ASSETS[skin]);
 
 		this.anchor.set(0.5);
-		this.scale.set(0.3);
+		this.scale.set(0.5);
 
 		this.setNotEating();
 	}

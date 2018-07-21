@@ -21,7 +21,7 @@ export class GameView extends Phaser.Group {
         }
 
 		this.playerZones.x = -50;
-		this.playerZones.y = (this.game.height - this.playerZones.height) * 0.5 + 20;
+		this.playerZones.y = (this.game.height - this.playerZones.height) * 0.5 + 80;
 
 		this.game.input.keyboard.onDownCallback = this._onKeyDown.bind(this);
 		this.game.input.keyboard.onUpCallback = this._onKeyUp.bind(this);

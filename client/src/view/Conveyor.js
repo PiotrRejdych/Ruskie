@@ -24,7 +24,7 @@ export class Conveyor extends Phaser.Group {
 		this._food.children.forEach((foodItem) => {
 			foodItem.x += 3;
 
-			if(foodItem.x > this.getWidth() - foodItem.width * 0.5) {
+			if(foodItem.x > this.getWidth() - foodItem.width * 0.5 + 10) {
 				garbage.push(foodItem);
 			}
 		});
@@ -51,7 +51,6 @@ export class Conveyor extends Phaser.Group {
 
 	_createFoodGroup() {
 		const foodGroup = this.game.add.group();
-		foodGroup.y = 10;
 		return this.add(foodGroup);
 	}
 }
