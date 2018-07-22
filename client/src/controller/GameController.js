@@ -79,7 +79,7 @@ export class GameController {
 
     _toEatOrNotToEat(playerIndex, dish) {
 		if(this._model.isPlayerEating(playerIndex)) {
-			let sating = dish.sating * 20;
+			let sating = dish.sating * 1;
 
 			if (this._model.isPlayerAllergicToDish(playerIndex, dish)) {
 				sating *= 0.5;
