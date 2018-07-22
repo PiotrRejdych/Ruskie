@@ -37,6 +37,7 @@ export class PreloaderState extends Phaser.State {
 		this.game.load.image('allergic','assets/textures/allergic.png');
 		this.game.load.image('sick','assets/textures/sick.png');
 
+        this.game.load.audio('gameTheme', 'assets/music/Polska.ogg');
         this.game.load.audio('menuTheme', ['assets/music/w_ziemiance.mp3', 'assets/audio/w_ziemiance.ogg']);
 
 		this.game.load.spritesheet('izabela', izabela, 600, 600);
