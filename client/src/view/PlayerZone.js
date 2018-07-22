@@ -23,10 +23,6 @@ export class PlayerZone extends Phaser.Group {
 	}
 
 	openMouth() {
-        // Playing the chewing sound.
-        const music = this.game.add.audio('chewing_sound');
-        music.volume -= 0.4;
-        music.play();
 		this._portrait.setEating();
 	}
 
@@ -36,7 +32,7 @@ export class PlayerZone extends Phaser.Group {
 
 	showAllergy() {
         // Playing the ouch sound because of allergy.
-        var music;
+        let music;
         if (this.character.index === 1) {
             music = this.game.add.audio('ouch_female_sound');
         } else {
