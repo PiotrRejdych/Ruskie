@@ -78,7 +78,6 @@ export class GameController {
 		if(this._model.isPlayerEating(playerIndex)) {
 			let sating = dish.sating;
 			sating *= this._model.isPlayerAllergicToDish(playerIndex, dish) ? 0.5 : 1;
-			sating *= 10;
 			this._model.setFullness(playerIndex, this._model.getFullness(playerIndex) + sating);
             this._view.getPlayerZone(playerIndex)._stomach.setFullness(this._model.getFullness(playerIndex));
 
