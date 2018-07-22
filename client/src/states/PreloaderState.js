@@ -39,6 +39,7 @@ export class PreloaderState extends Phaser.State {
 
         this.game.load.audio('gameTheme', 'assets/music/Polska.ogg');
         this.game.load.audio('menuTheme', ['assets/music/w_ziemiance.mp3', 'assets/audio/w_ziemiance.ogg']);
+        this.game.load.audio('chewing_sound', ['assets/music/chewing_sound.mp3', 'assets/music/chewing_sound.ogg']);
 
 		this.game.load.spritesheet('izabela', izabela, 600, 600);
 		this.game.load.spritesheet('janusz', janusz, 600, 600);
