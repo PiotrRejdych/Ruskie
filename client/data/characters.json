@@ -1,14 +1,14 @@
 [
   {
-    "name": "bohun",
-    "allergy": "strawberry"
-  },
-  {
     "name": "janusz",
     "allergy": "spinach"
   },
   {
     "name": "izabela",
     "allergy": "cottageCheese"
+  },
+  {
+    "name": "bohun",
+    "allergy": "strawberry"
   }
 ]
