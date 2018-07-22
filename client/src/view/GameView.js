@@ -38,6 +38,14 @@ export class GameView extends Phaser.Group {
 		this.getPlayerZone(playerIndex).closeMouth();
 	}
 
+	showPlayerAllergy(playerIndex) {
+		this.getPlayerZone(playerIndex).showAllergy();
+	}
+
+	showPlayerSickness(playerIndex) {
+		this.getPlayerZone(playerIndex).showSickness();
+	}
+
 	getPlayerZone(playerIndex) {
 		return this.playerZones.children[playerIndex];
 	}
