@@ -76,7 +76,7 @@ export class GameController {
 
     _toEatOrNotToEat(playerIndex, dish) {
 		if(this._model.isPlayerEating(playerIndex)) {
-			let sating = dish.sating;
+			let sating = dish.sating * 10;
 
 			if (this._model.isPlayerAllergicToDish(playerIndex, dish)) {
 				sating *= 0.5;
@@ -90,7 +90,7 @@ export class GameController {
             this._view.getPlayerZone(playerIndex)._stomach.setFullness(this._model.getFullness(playerIndex));
 
             if (this._model.getFullness(playerIndex) >= this._model.STOMACH_CAPACITY) {
-            	this._game.state.start('Summary', true, false, this._model.getPlayingCharacters()[playerIndex + 1].name, this._playersCount);
+            	this._game.state.start('Summary', true, false, this._model.getPlayingCharacters()[playerIndex].name, this._playersCount);
             }
         }
 	}
