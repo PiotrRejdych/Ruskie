@@ -8,10 +8,10 @@ export class PlayerZone extends Phaser.Group {
 		super(game);
 
 		this.game = game;
-
-		this._conveyor = this._createConveyor();
+		
+		this._conveyor = this._createConveyor(character.index);
 		this._portrait = this._createPortrait(character.index);
-		this._stomach = this._createStomach();
+		this._stomach = this._createStomach(character.index);
 		this._allergyIndicator = this._createAllergyIndicator(character.allergy);
 	}
 
@@ -27,8 +27,8 @@ export class PlayerZone extends Phaser.Group {
 		this._portrait.setNotEating();
 	}
 
-	_createConveyor() {
-		const conveyor = new Conveyor(this.game);
+	_createConveyor(playerIndex) {
+		const conveyor = new Conveyor(this.game, playerIndex);
 		return this.add(conveyor);
 	}
 
@@ -39,8 +39,8 @@ export class PlayerZone extends Phaser.Group {
 		return this.add(portrait);
 	}
 
-	_createStomach() {
-		const stomach = new Stomach(this.game);
+	_createStomach(playerIndex) {
+		const stomach = new Stomach(this.game, playerIndex);
 		stomach.x =  this._conveyor.getWidth() + 250;
 		stomach.y = 80;
 		return this.add(stomach);

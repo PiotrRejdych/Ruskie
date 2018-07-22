@@ -2,10 +2,11 @@ import {FoodItem} from "./FoodItem";
 import {DishManager} from "../controller/DishManager";
 
 export class Conveyor extends Phaser.Group {
-    constructor(game) {
+    constructor(game, playerIndex) {
         super(game);
 
         this.game = game;
+        this._playerIndex = playerIndex;
 
         this._belt = this._createBelt();
         this._food = this._createFoodGroup();
@@ -30,6 +31,7 @@ export class Conveyor extends Phaser.Group {
 		});
 
 	    garbage.forEach((foodItem) => {
+	    	this.game.eatingSignal.dispatch(this._playerIndex, foodItem.dish.sating);
 		    foodItem.destroy();
 	    });
     }

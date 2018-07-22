@@ -4,7 +4,6 @@ export class Stomach extends Phaser.Group {
 
 	set fullness (value) {
 		this._fullness = value;
-		this.updateMask();
 	}
 
 	constructor(game) {
@@ -23,7 +22,7 @@ export class Stomach extends Phaser.Group {
 		this.maskGraphic = this.createMask(game, this.getFillStomachHeight());
 		this.fullStomach.mask = this.maskGraphic;
 
-		this.scale.set(0.3);
+		this.scale.set(0.25);
 	}
 
 	createEmptyStomach(game) {
@@ -41,17 +40,18 @@ export class Stomach extends Phaser.Group {
 		return this.add(mask);
 	}
 
-	setFullness(fullness) {
-		this.game.add.tween(this).to({ fullness }, 500, Phaser.Easing.Elastic.Out, true);
+	setFullness(sating) {
+		this._fullness += sating;
+        this.updateMask();
 	}
 
 	updateMask() {
 		this.maskGraphic.clear();
 		this.maskGraphic.beginFill(0xffffff);
-		this.maskGraphic.drawRect(0, 0, this.emptyStomach.width, this.getFillStomachHeight());
+		this.maskGraphic.drawRect(0, this.emptyStomach.height - this.getFillStomachHeight(), this.emptyStomach.width, this.emptyStomach.height);
 	}
 
 	getFillStomachHeight() {
-		return this._fullness * this.fullStomach.height;
+		return this._fullness * this.fullStomach.height / 100;
 	}
 }
