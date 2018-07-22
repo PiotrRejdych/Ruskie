@@ -12,7 +12,10 @@ export class PlayerZone extends Phaser.Group {
 		this._conveyor = this._createConveyor(character.index);
 		this._portrait = this._createPortrait(character.index);
 		this._stomach = this._createStomach(character.index);
-		this._allergyIndicator = this._createAllergyIndicator(character.allergy);
+		this._allergy = this._createAllergy(character.allergy);
+
+		this._allergyIndicator = this._createAllergyIndicator();
+		this._sickIndicator = this._createSickIndicator();
 	}
 
 	spawnDish(dish) {
@@ -25,6 +28,26 @@ export class PlayerZone extends Phaser.Group {
 
 	closeMouth() {
 		this._portrait.setNotEating();
+	}
+
+	showAllergy() {
+		if (this._allergyIndicator.timerEvent) {
+			this.game.time.events.remove(this._allergyIndicator.timerEvent);
+			this._allergyIndicator.timerEvent = null;
+		}
+
+		this.game.add.tween(this._allergyIndicator).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true);
+		this._allergyIndicator.timerEvent = this.game.time.events.add(1000, this._hideAllergy, this);
+	}
+
+	showSickness() {
+		if (this._sickIndicator.timerEvent) {
+			this.game.time.events.remove(this._sickIndicator.timerEvent);
+			this._sickIndicator.timerEvent = null;
+		}
+
+		this.game.add.tween(this._sickIndicator).to( { alpha: 1 }, 500, Phaser.Easing.Linear.None, true);
+		this._sickIndicator.timerEvent = this.game.time.events.add(1000, this._hideSickness, this);
 	}
 
 	_createConveyor(playerIndex) {
@@ -46,10 +69,40 @@ export class PlayerZone extends Phaser.Group {
 		return this.add(stomach);
 	}
 
-	_createAllergyIndicator(allergyKey) {
-		const allergyIndicator = new AllergyIndicator(this.game, allergyKey);
-		allergyIndicator.x = this._portrait.x + 140;
-		allergyIndicator.y = this._portrait.y - 90;
+	_createAllergy(allergyKey) {
+		const allergy = new AllergyIndicator(this.game, allergyKey);
+		allergy.x = this._portrait.x + 140;
+		allergy.y = this._portrait.y - 90;
+		return this.add(allergy);
+	}
+
+	_createAllergyIndicator() {
+		const allergyIndicator = this.game.add.sprite(0, 0, "allergic");
+		allergyIndicator.anchor.set(0, 1);
+		allergyIndicator.scale.set(0.2);
+		allergyIndicator.x = this._portrait.x + 60;
+		allergyIndicator.y = this._portrait.y - 20;
+		allergyIndicator.alpha = 0;
 		return this.add(allergyIndicator);
+	}
+
+	_createSickIndicator() {
+		const sickIndicator = this.game.add.sprite(0, 0, "sick");
+		sickIndicator.anchor.set(0, 1);
+		sickIndicator.scale.set(0.2);
+		sickIndicator.x = this._portrait.x + 60;
+		sickIndicator.y = this._portrait.y - 20;
+		sickIndicator.alpha = 0;
+		return this.add(sickIndicator);
+	}
+
+	_hideAllergy() {
+		this._allergyIndicator.timerEvent = null;
+		this.game.add.tween(this._allergyIndicator).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true);
+	}
+
+	_hideSickness() {
+		this._sickIndicator.timerEvent = null;
+		this.game.add.tween(this._sickIndicator).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true);
 	}
 }

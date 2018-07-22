@@ -33,6 +33,8 @@ export class PreloaderState extends Phaser.State {
 		this.game.load.image('strawberryDumpling3', 'assets/textures/strawberryDumpling3.png');
 		this.game.load.image('conveyorBelt','assets/textures/conveyorBelt.png');
 		this.game.load.image('cross','assets/textures/cross.png');
+		this.game.load.image('allergic','assets/textures/allergic.png');
+		this.game.load.image('sick','assets/textures/sick.png');
 
 		this.game.load.spritesheet('izabela', izabela, 600, 600);
 		this.game.load.spritesheet('janusz', janusz, 600, 600);
