@@ -10,7 +10,7 @@ export class GameView extends Phaser.Group {
 	}
 
 	prepareScene(characters) {
-		this.game.stage.backgroundColor = "#4488AA";
+        this.bg = this.game.add.tileSprite(0, 0, this.game.width, this.game.cache.getImage('backgroundClean').height, 'backgroundClean');
 		this.playerZones = this.game.add.group();
 
 		characters.forEach((character, index) => {

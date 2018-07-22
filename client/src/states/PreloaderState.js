@@ -11,6 +11,7 @@ export class PreloaderState extends Phaser.State {
 		this.game.load.spritesheet('buttonsheet', 'assets/spritesheets/buttonsheet.png', 504, 100);
         this.game.load.image('partTimeKamikaze', 'assets/textures/partTimeKamikaze.jpg');
         this.game.load.image('background', 'assets/textures/background.png');
+        this.game.load.image('backgroundClean', 'assets/textures/backgroundClean.png');
 		this.game.load.image('stomach_empty', emptyStomach);
 		this.game.load.image('stomach_full', fullStomach);
 		this.game.load.image('cottageCheese', 'assets/textures/cottageCheese.png');
