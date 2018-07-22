@@ -40,6 +40,9 @@ export class PreloaderState extends Phaser.State {
         this.game.load.audio('gameTheme', 'assets/music/oberek_na_lace.ogg');
         this.game.load.audio('menuTheme', ['assets/music/w_ziemiance.mp3', 'assets/audio/w_ziemiance.ogg']);
         this.game.load.audio('chewing_sound', ['assets/music/chewing_sound.mp3', 'assets/music/chewing_sound.ogg']);
+        this.game.load.audio('ouch_male_sound', ['assets/music/ouch.wav', 'assets/music/ouch.ogg']);
+        this.game.load.audio('ouch_female_sound', ['assets/music/ouch_female.wav', 'assets/music/ouch_female.ogg']);
+        this.game.load.audio('puking_sound', ['assets/music/puke.wav', 'assets/music/puke.ogg']);
 
 		this.game.load.spritesheet('izabela', izabela, 600, 600);
 		this.game.load.spritesheet('janusz', janusz, 600, 600);
