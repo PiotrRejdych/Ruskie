@@ -10,6 +10,8 @@ export class Conveyor extends Phaser.Group {
 
         this._belt = this._createBelt();
         this._food = this._createFoodGroup();
+
+        this.update.bind(this);
     }
 
     spawnDish(dish) {

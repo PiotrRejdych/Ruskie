@@ -1,10 +1,4 @@
-
-
 export class Stomach extends Phaser.Group {
-
-	set fullness (value) {
-		this._fullness = value;
-	}
 
 	constructor(game) {
 		super(game);
@@ -36,7 +30,7 @@ export class Stomach extends Phaser.Group {
 	createMask(game) {
 		const mask = game.add.graphics(0, 0);
 		mask.beginFill(0xffffff);
-		mask.drawRect(0, 0, this.emptyStomach.width, );
+		mask.drawRect(0, 0, this.emptyStomach.width, 0);
 		return this.add(mask);
 	}
 

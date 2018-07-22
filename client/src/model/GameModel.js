@@ -29,7 +29,7 @@ export class GameModel {
 	}
 
 	isPlayerEating(playerIndex) {
-		return this._playersEating.indexOf(playerIndex) ;
+		return this._playersEating.indexOf(playerIndex) >= 0;
 	}
 
 	getDishAssortment() {
