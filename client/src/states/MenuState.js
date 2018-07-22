@@ -9,6 +9,7 @@ export class MenuState extends Phaser.State {
         const exitButton = this._createExitButton();
         this.game.add.text(this.game.width / 2 - 350, 100, "Ruskie", {font:"300px Bulgaria_Moderna", fill:"#000000"});
         this._music = this.game.add.audio('menuTheme');
+		this._music.loop = true;
         this._music.play();
     }
 

@@ -33,6 +33,7 @@ export class GameController {
         this._game.eatingSignal.add(this._toEatOrNotToEat, this);
 
         this._music = this._game.add.audio('gameTheme');
+		this._music.loop = true;
         this._music.play();
 	}
 

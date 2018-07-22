@@ -21,7 +21,7 @@ export class Conveyor extends Phaser.Group {
 	}
 
     update() {
-    	this._belt.tilePosition.x += 10;
+    	this._belt.tilePosition.x += 33;
 
     	const garbage = [];
 		this._food.children.forEach((foodItem) => {
