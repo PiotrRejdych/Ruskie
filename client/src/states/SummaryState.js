@@ -1,8 +1,8 @@
 import { Button } from "../components/Button";
 
 export class SummaryState extends Phaser.State {
-	init(winnerPlayerIndex, playersCount) {
-		this._winnerPlayerIndex = winnerPlayerIndex;
+	init(winnerPlayer, playersCount) {
+		this._winnerPlayer = winnerPlayer;
 		this._playersCount = playersCount;
 	}
 
@@ -10,9 +10,14 @@ export class SummaryState extends Phaser.State {
 		const bg = this.game.add.tileSprite(0, 0, this.game.width, this.game.cache.getImage('background').height, 'background');
 		//const replayButton = this._createReplayButton();
 		const toMenuButton = this._createToMenuButton();
-		const text = this.game.add.text(this.game.width * 0.5, 100, "Player " + (this._winnerPlayerIndex + 1) + " won", {font:"120px Bulgaria_Moderna", fill:"#000000", align: "center"});
+
+		const text = this.game.add.text(this.game.width * 0.5, 200, this._winnerPlayer.toString().toUpperCase() + " won", {font:"150px Bulgaria_Moderna", fill:"#000000", align: "center"});
 		text.anchor.set(0.5, 0.5);
 	}
+
+	_capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
 	_createReplayButton() {
 		const button = new Button(this.game, "Replay", this._proceedToGameScene);

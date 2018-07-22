@@ -70,7 +70,7 @@ export class DishManager {
 	}
 
 	_shouldSpawnRottenDish() {
-		return Math.random() < 0.4;
+		return Math.random() < 0.3;
 	}
 
 	_filterGoodDishes(dish) {

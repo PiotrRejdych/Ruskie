@@ -25,7 +25,7 @@ export class Conveyor extends Phaser.Group {
 
     	const garbage = [];
 		this._food.children.forEach((foodItem) => {
-			foodItem.x += 3;
+			foodItem.x += 10;
 
 			if(foodItem.x > this.getWidth() - foodItem.width * 0.5 + 10) {
 				garbage.push(foodItem);

@@ -2,8 +2,8 @@ export class GameModel {
 	constructor(gameCache, playersCount) {
 		this.playersCount = playersCount;
 
-		this.BASE_SPAWN_TIME = 1000; // in milliseconds
-		this.BASE_SPAWN_SPEED = 1.0;
+		this.BASE_SPAWN_TIME = 800; // in milliseconds
+		this.BASE_SPAWN_SPEED = 2;
 		this.STOMACH_CAPACITY = 100;
 
 		this._playersEating = [];

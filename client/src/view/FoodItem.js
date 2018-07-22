@@ -3,7 +3,7 @@ export class FoodItem extends Phaser.Sprite {
         super(game, 0, 0, dish.key);
         this.dish = dish;
 
-        this.scale.set(0.2);
+        this.scale.set(0.3);
 
         this.pivot.x = this.width / 2;
         this.pivot.y = this.height / 2;

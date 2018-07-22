@@ -82,7 +82,7 @@ export class GameController {
             this._view.getPlayerZone(playerIndex)._stomach.setFullness(this._model.getFullness(playerIndex));
 
             if (this._model.getFullness(playerIndex) >= this._model.STOMACH_CAPACITY) {
-            	this._game.state.start('Summary', true, false, playerIndex, this._playersCount);
+            	this._game.state.start('Summary', true, false, this._model.getPlayingCharacters()[playerIndex + 1].name, this._playersCount);
             }
         }
 	}
