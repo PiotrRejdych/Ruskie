@@ -34,8 +34,8 @@ export class Stomach extends Phaser.Group {
 		return this.add(mask);
 	}
 
-	setFullness(sating) {
-		this._fullness += sating;
+	setFullness(fullness) {
+		this._fullness = fullness;
         this.updateMask();
 	}
 

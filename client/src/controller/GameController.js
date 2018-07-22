@@ -74,9 +74,12 @@ export class GameController {
 		}
 	}
 
-    _toEatOrNotToEat(playerIndex, sating) {
+    _toEatOrNotToEat(playerIndex, dish) {
 		if(this._model.isPlayerEating(playerIndex)) {
-            this._view.getPlayerZone(playerIndex)._stomach.setFullness(sating);
+			let sating = dish.sating;
+			sating *= this._model.isPlayerAllergicToDish(playerIndex, dish) ? 0.5 : 1;
+			this._model.setFullness(playerIndex, this._model.getFullness(playerIndex) + sating);
+            this._view.getPlayerZone(playerIndex)._stomach.setFullness(this._model.getFullness(playerIndex));
         }
 	}
 }

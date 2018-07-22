@@ -1,50 +1,50 @@
 [
   {
     "name": "dumpling1",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "dumpling2",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "dumpling3",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "spinachDumpling1",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "spinachDumpling2",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "spinachDumpling3",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "strawberryDumpling1",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "strawberryDumpling2",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "strawberryDumpling3",
-    "sating": 1
+    "sating": 2
   },
   {
     "name": "rottenDumpling1",
-    "sating": -3
+    "sating": -5
   },
   {
     "name": "rottenDumpling2",
-    "sating": -3
+    "sating": -5
   },
   {
     "name": "rottenDumpling3",
-    "sating": -3
+    "sating": -5
   }
 ]

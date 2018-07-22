@@ -6,6 +6,10 @@ export class GameModel {
 		this.BASE_SPAWN_SPEED = 1.0;
 
 		this._playersEating = [];
+		this._fullness = [];
+		for (let i = 0; i < this.playersCount; i++) {
+			this._fullness[i] = 0;
+		}
 
 		this._handlerKeys = gameCache.getJSON("handlerkeys").map(this._parsePlayerHandlerKeys);
 		this._assortment = gameCache.getJSON("food").map(this._parseDish);
@@ -30,6 +34,18 @@ export class GameModel {
 
 	isPlayerEating(playerIndex) {
 		return this._playersEating.indexOf(playerIndex) >= 0;
+	}
+
+	isPlayerAllergicToDish(playerIndex, dish) {
+		return dish.key.indexOf(this._characters[playerIndex].allergy) >= 0;
+	}
+
+	getFullness(playerIndex) {
+		return this._fullness[playerIndex];
+	}
+
+	setFullness(playerIndex, value) {
+		this._fullness[playerIndex] = value;
 	}
 
 	getDishAssortment() {

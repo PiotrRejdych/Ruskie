@@ -33,7 +33,7 @@ export class Conveyor extends Phaser.Group {
 		});
 
 	    garbage.forEach((foodItem) => {
-	    	this.game.eatingSignal.dispatch(this._playerIndex, foodItem.dish.sating);
+	    	this.game.eatingSignal.dispatch(this._playerIndex, foodItem.dish);
 		    foodItem.destroy();
 	    });
     }
