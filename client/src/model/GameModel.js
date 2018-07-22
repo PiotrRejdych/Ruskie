@@ -4,6 +4,7 @@ export class GameModel {
 
 		this.BASE_SPAWN_TIME = 1000; // in milliseconds
 		this.BASE_SPAWN_SPEED = 1.0;
+		this.STOMACH_CAPACITY = 100;
 
 		this._playersEating = [];
 		this._fullness = [];

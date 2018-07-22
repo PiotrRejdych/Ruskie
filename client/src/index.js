@@ -3,6 +3,7 @@ import { BootState } from "./states/BootState";
 import { PreloaderState } from "./states/PreloaderState";
 import { MenuState } from "./states/MenuState";
 import { GameState } from "./states/GameState";
+import { SummaryState } from "./states/SummaryState";
 import { CreditsState } from "./states/CreditsState";
 
 window.onload = function () {
@@ -12,5 +13,6 @@ window.onload = function () {
 	game.state.add('Menu', new MenuState());
 	game.state.add('Game', new GameState());
     game.state.add('Credits', new CreditsState());
+	game.state.add('Summary', new SummaryState());
 	game.state.start('Boot');
 };

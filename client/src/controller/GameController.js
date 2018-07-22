@@ -59,7 +59,7 @@ export class GameController {
 	}
 
 	_onKeyDown(key) {
-		if (this._model.isKeyHandled(key)) {
+		if (this._game.state.getCurrentState().key === "Game" && this._model.isKeyHandled(key)) {
 			const playerIndex = this._model.getPlayerPressingKey(key);
 			this._model.setPlayerEating(playerIndex);
 			this._view.openPlayerMouth(playerIndex);
@@ -67,7 +67,7 @@ export class GameController {
 	}
 
 	_onKeyUp(key) {
-		if (this._model.isKeyHandled(key)) {
+		if (this._game.state.getCurrentState().key === "Game" && this._model.isKeyHandled(key)) {
 			const playerIndex = this._model.getPlayerPressingKey(key);
 			this._model.setPlayerStarving(playerIndex);
 			this._view.closePlayerMouth(playerIndex);
@@ -78,8 +78,13 @@ export class GameController {
 		if(this._model.isPlayerEating(playerIndex)) {
 			let sating = dish.sating;
 			sating *= this._model.isPlayerAllergicToDish(playerIndex, dish) ? 0.5 : 1;
+			sating *= 10;
 			this._model.setFullness(playerIndex, this._model.getFullness(playerIndex) + sating);
             this._view.getPlayerZone(playerIndex)._stomach.setFullness(this._model.getFullness(playerIndex));
+
+            if (this._model.getFullness(playerIndex) >= this._model.STOMACH_CAPACITY) {
+            	this._game.state.start('Summary', true, false, playerIndex, this._playersCount);
+            }
         }
 	}
 }
