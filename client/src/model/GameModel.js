@@ -9,6 +9,11 @@ export class GameModel {
 
 		this._handlerKeys = gameCache.getJSON("handlerkeys").map(this._parsePlayerHandlerKeys);
 		this._assortment = gameCache.getJSON("food").map(this._parseDish);
+		this._characters = gameCache.getJSON("characters").map(this._parseCharacter);
+	}
+
+	getPlayingCharacters() {
+		return this._characters.slice(0, this.playersCount);
 	}
 
 	setPlayerEating(playerIndex) {
@@ -52,6 +57,14 @@ export class GameModel {
 		return {
 			key: dish.name,
 			sating: dish.sating
+		};
+	}
+
+	_parseCharacter(character, index) {
+		return {
+			index: index,
+			name: character.name,
+			allergy: character.allergy
 		};
 	}
 }

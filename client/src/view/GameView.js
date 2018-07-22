@@ -9,16 +9,15 @@ export class GameView extends Phaser.Group {
 		this.onKeyUp = null;
 	}
 
-	prepareScene(playersCount) {
+	prepareScene(characters) {
 		this.game.stage.backgroundColor = "#4488AA";
-
 		this.playerZones = this.game.add.group();
 
-		for (let i = 0; i < playersCount; i++) {
-			const playerZone = new PlayerZone(this.game, i);
-			playerZone.y = i * 300;
-            this.playerZones.add(playerZone);
-        }
+		characters.forEach((character, index) => {
+			const playerZone = new PlayerZone(this.game, character);
+			playerZone.y = index * 300;
+			this.playerZones.add(playerZone);
+		}, this);
 
 		this.playerZones.x = -50;
 		this.playerZones.y = (this.game.height - this.playerZones.height) * 0.5 + 80;

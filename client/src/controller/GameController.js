@@ -24,7 +24,7 @@ export class GameController {
 			this._elapsedTime[i] = 0;
 		}
 
-		this._view.prepareScene(this._model.playersCount);
+		this._view.prepareScene(this._model.getPlayingCharacters());
 		this._view.onKeyDown = this._onKeyDown.bind(this);
 		this._view.onKeyUp = this._onKeyUp.bind(this);
 	}
