@@ -32,14 +32,15 @@ export class PlayerZone extends Phaser.Group {
 
 	_createPortrait(playerIndex) {
 		const portrait = new Portrait(this.game, playerIndex);
-		portrait.y = this.game.height - 260;
-		portrait.x = this._conveyor.getWidth() * 0.5;
+		portrait.y = this._conveyor.getHeight() * 0.5 - 10;
+		portrait.x = this._conveyor.getWidth();
 		return this.add(portrait);
 	}
 
 	_createStomach(playerIndex) {
 		const stomach = new Stomach(this.game, playerIndex);
-		stomach.y = this.game.height - stomach.height / 2;
+		stomach.x =  this._conveyor.getWidth() + 250;
+		stomach.y = 80;
 		return this.add(stomach);
 	}
 }

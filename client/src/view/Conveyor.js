@@ -8,28 +8,24 @@ export class Conveyor extends Phaser.Group {
         this.game = game;
         this._playerIndex = playerIndex;
 
-        this._backgroundImage = this.game.add.sprite(0, 0, 'conveyorBelt');
-        this._backgroundImage.scale.setTo(0.3, 0.3);
-
-        this._food = this.game.add.group();
-	    this._food.x = 20;
-
-        this.add(this._backgroundImage);
-	    this.add(this._food);
+        this._belt = this._createBelt();
+        this._food = this._createFoodGroup();
     }
 
     spawnDish(dish) {
     	const foodItem = new FoodItem(this.game, dish);
-	    foodItem.x = Math.floor(Math.random() * this.getWidth() * 0.8);
+	    foodItem.y = Math.floor(Math.random() * this.getHeight() * 0.6);
         this._food.add(foodItem);
 	}
 
     update() {
+    	this._belt.tilePosition.x += 10;
+
     	const garbage = [];
 		this._food.children.forEach((foodItem) => {
-			foodItem.y += 4;
+			foodItem.x += 3;
 
-			if(foodItem.y > this.getHeight() - foodItem.height * 0.5) {
+			if(foodItem.x > this.getWidth() - foodItem.width * 0.5 + 10) {
 				garbage.push(foodItem);
 			}
 		});
@@ -41,11 +37,22 @@ export class Conveyor extends Phaser.Group {
     }
 
     getWidth() {
-    	return this._backgroundImage.width;
+    	return this._belt.width;
     }
 
 	getHeight() {
-		return this._backgroundImage.height;
+		return this._belt.height;
 	}
 
+	_createBelt() {
+		const belt = this.game.add.tileSprite(0, 0, 1200, 181, 'conveyorBelt');
+		belt.tileScale.x = 0.3;
+		belt.tileScale.y = 0.3;
+		return this.add(belt);
+	}
+
+	_createFoodGroup() {
+		const foodGroup = this.game.add.group();
+		return this.add(foodGroup);
+	}
 }
