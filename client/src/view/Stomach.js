@@ -35,9 +35,9 @@ export class Stomach extends Phaser.Group {
 	}
 
 	setFullness(fullness) {
-	    // Playing the chewing sound.
-        const music = this.game.add.audio('chewing_sound');
-        music.play();
+        // // Playing the chewing sound.
+        // const music = this.game.add.audio('chewing_sound');
+        // music.play();
 
 		this._fullness = fullness;
         this.updateMask();

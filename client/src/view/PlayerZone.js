@@ -8,7 +8,7 @@ export class PlayerZone extends Phaser.Group {
 		super(game);
 
 		this.game = game;
-		
+		this.character = character;
 		this._conveyor = this._createConveyor(character.index);
 		this._portrait = this._createPortrait(character.index);
 		this._stomach = this._createStomach(character.index);
@@ -23,6 +23,10 @@ export class PlayerZone extends Phaser.Group {
 	}
 
 	openMouth() {
+        // Playing the chewing sound.
+        const music = this.game.add.audio('chewing_sound');
+        music.volume -= 0.4;
+        music.play();
 		this._portrait.setEating();
 	}
 
@@ -31,6 +35,16 @@ export class PlayerZone extends Phaser.Group {
 	}
 
 	showAllergy() {
+        // Playing the ouch sound because of allergy.
+        var music;
+        if (this.character.index === 1) {
+            music = this.game.add.audio('ouch_female_sound');
+        } else {
+            music = this.game.add.audio('ouch_male_sound');
+        }
+        music.volume += 0.3;
+        music.play();
+
 		if (this._allergyIndicator.timerEvent) {
 			this.game.time.events.remove(this._allergyIndicator.timerEvent);
 			this._allergyIndicator.timerEvent = null;
@@ -41,6 +55,9 @@ export class PlayerZone extends Phaser.Group {
 	}
 
 	showSickness() {
+        // Playing the puking sound.
+        const music = this.game.add.audio('puking_sound');
+        music.play();
 		if (this._sickIndicator.timerEvent) {
 			this.game.time.events.remove(this._sickIndicator.timerEvent);
 			this._sickIndicator.timerEvent = null;
